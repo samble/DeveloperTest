@@ -9,7 +9,7 @@ namespace Part1.General.UnitTests
     [TestClass]
     public class PatientUnitTests
     {
-        private static Patient getValidPatient_noPolicy()
+        internal static Patient getValidPatient_noPolicy()
         {
 
             return new Patient()
@@ -24,7 +24,7 @@ namespace Part1.General.UnitTests
             };
         }
 
-        private static Patient getValidPatient()
+        internal static Patient getValidPatient()
         {
             return getValidPatient_noPolicy().AddInsurancePolicy(InsurancePolicyUnitTests.getValidInsurancePolicy());
         }
