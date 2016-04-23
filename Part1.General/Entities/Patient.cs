@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Part1.General.Entities;
 
 namespace Part1.General
 {
-    class Patient
+    internal class Patient
     {
         //- Medical record number(string)
         public string MRN { get; set; }
@@ -19,8 +16,16 @@ namespace Part1.General
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
-        public Entities.StateEnum State { get; set; }
+        public StateEnum State { get; set; }
         public string ZipCode { get; set; }
 
+        private List<InsurancePolicy> _insurancePolicies = new List<InsurancePolicy>();
+
+        public IEnumerable<InsurancePolicy> InsurancePolicies { get; private set; }
+
+        public void AddInsurancePolicy(InsurancePolicy policy)
+        {
+            _insurancePolicies.Add(policy);
+        }
     }
 }
