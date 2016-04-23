@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="stylesheet" href="normalize.css" />
+        <link rel="stylesheet" href="HomeStyles.css" />
+
+        <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+        <script src="HomeScripts.js"></script>
+    </head>
+    <body>
+        <section class="navbar">
+            <ul class="navbar-menu">
+                <li class="selected"><span>Home</span></li>
+                <li><span>Patient Queue</span></li>
+                <li><span>Patient Search</span></li>
+                <li><span>Reports</span></li>
+                <li><span>Tools</span></li>
+            </ul>
+        </section>
+
+        <div class="content">
+            <h2>Select a color</h2>
+
+            <div>
+                <div class="color blue clickable"><span>Blue</span></div>
+                <div class="color orange clickable"><span>Orange</span></div>
+                <div class="color red clickable"><span>Red</span></div>
+                <div class="color purple clickable"><span>Purple</span></div>
+                <div class="color green clickable"><span>Green</span></div>
+            </div>
+
+            <h2>You selected</h2>
+            <div>
+                <div id="selectedColor" class="color"><span>None</span></div>
+            </div>
+        </div>
+    </body>
+</html>

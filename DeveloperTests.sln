@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part1", "Part1", "{5B5124F6-7EB2-4C5C-9C7F-9B98E01AA817}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D9044908-F3AB-4676-9B74-D9F215EC1610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part1.General", "Part1.General\Part1.General.csproj", "{E999E7F4-8FAC-4C2D-B684-35D1E5D7B6CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D53D02D-0A1B-4331-B107-313F99C67424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part1.General.UnitTests", "Part1.General.UnitTests\Part1.General.UnitTests.csproj", "{A08DFEF4-2724-4286-BC34-5AD89BAE70B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "instructions", "instructions", "{A4800789-B007-495C-8432-E6631AD9E0D6}"
+	ProjectSection(SolutionItems) = preProject
+		Part1-ReadMe.txt = Part1-ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part2", "Part2", "{B4EDFCF6-CF52-4AD7-BBF2-8D877D3792E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "instructions", "instructions", "{80903B0A-CB51-4FEF-AFC7-F4610F71453D}"
+	ProjectSection(SolutionItems) = preProject
+		Part2-ReadMe.txt = Part2-ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{77ECBDA9-32FA-4FFF-8ED8-9587DAE6B95C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part2.Web", "Part2.Web", "{48CFBD17-6616-46E1-B4D7-784DF4622A86}"
+	ProjectSection(SolutionItems) = preProject
+		Part2.Web\HomePage.html = Part2.Web\HomePage.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{45EC0F0D-4EA2-499F-8EAE-8809D0DE124A}"
+	ProjectSection(SolutionItems) = preProject
+		Part2.Web\Screenshots\Screenshot1.png = Part2.Web\Screenshots\Screenshot1.png
+		Part2.Web\Screenshots\Screenshot2.png = Part2.Web\Screenshots\Screenshot2.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E999E7F4-8FAC-4C2D-B684-35D1E5D7B6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E999E7F4-8FAC-4C2D-B684-35D1E5D7B6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E999E7F4-8FAC-4C2D-B684-35D1E5D7B6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E999E7F4-8FAC-4C2D-B684-35D1E5D7B6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08DFEF4-2724-4286-BC34-5AD89BAE70B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08DFEF4-2724-4286-BC34-5AD89BAE70B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08DFEF4-2724-4286-BC34-5AD89BAE70B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08DFEF4-2724-4286-BC34-5AD89BAE70B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D9044908-F3AB-4676-9B74-D9F215EC1610} = {5B5124F6-7EB2-4C5C-9C7F-9B98E01AA817}
+		{E999E7F4-8FAC-4C2D-B684-35D1E5D7B6CE} = {D9044908-F3AB-4676-9B74-D9F215EC1610}
+		{9D53D02D-0A1B-4331-B107-313F99C67424} = {5B5124F6-7EB2-4C5C-9C7F-9B98E01AA817}
+		{A08DFEF4-2724-4286-BC34-5AD89BAE70B6} = {9D53D02D-0A1B-4331-B107-313F99C67424}
+		{A4800789-B007-495C-8432-E6631AD9E0D6} = {5B5124F6-7EB2-4C5C-9C7F-9B98E01AA817}
+		{80903B0A-CB51-4FEF-AFC7-F4610F71453D} = {B4EDFCF6-CF52-4AD7-BBF2-8D877D3792E4}
+		{77ECBDA9-32FA-4FFF-8ED8-9587DAE6B95C} = {B4EDFCF6-CF52-4AD7-BBF2-8D877D3792E4}
+		{48CFBD17-6616-46E1-B4D7-784DF4622A86} = {77ECBDA9-32FA-4FFF-8ED8-9587DAE6B95C}
+		{45EC0F0D-4EA2-499F-8EAE-8809D0DE124A} = {48CFBD17-6616-46E1-B4D7-784DF4622A86}
+	EndGlobalSection
+EndGlobal
