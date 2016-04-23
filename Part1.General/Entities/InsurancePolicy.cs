@@ -9,7 +9,7 @@ using FluentValidation.Attributes;
 namespace Part1.General.Entities
 {
     [Validator(typeof(InsurancePolicyValidator))]
-    public class InsurancePolicy
+    public sealed class InsurancePolicy
     {
         //an insurance policy has a provider name and a policy number (string).
         public string ProviderName { get; set; }

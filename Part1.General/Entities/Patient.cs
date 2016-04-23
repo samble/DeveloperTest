@@ -20,22 +20,22 @@ namespace Part1.General.Entities
         }
 
         //- Medical record number(string)
-        public string MRN { get; set; }
+        public virtual string MRN { get; set; }
 
         //- First and last name
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public virtual string FirstName { get; set; }
+        public virtual string LastName { get; set; }
 
         //- Street address including city, state, and zip code
-        public string Address1 { get; set; }
-        public string Address2 { get; set; }
-        public string City { get; set; }
-        public StateEnum State { get; set; }
-        public string ZipCode { get; set; }
+        public virtual string Address1 { get; set; }
+        public virtual string Address2 { get; set; }
+        public virtual string City { get; set; }
+        public virtual StateEnum State { get; set; }
+        public virtual string ZipCode { get; set; }
 
         private List<InsurancePolicy> _insurancePolicies = new List<InsurancePolicy>();
 
-        public IEnumerable<InsurancePolicy> InsurancePolicies
+        public virtual IEnumerable<InsurancePolicy> InsurancePolicies
         {
             get
             {
@@ -43,7 +43,7 @@ namespace Part1.General.Entities
             }
         }
 
-        public Patient AddInsurancePolicy(InsurancePolicy policy)
+        public virtual Patient AddInsurancePolicy(InsurancePolicy policy)
         {
             _insurancePolicies.Add(policy);
             return this;
