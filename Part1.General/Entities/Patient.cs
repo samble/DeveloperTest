@@ -6,6 +6,19 @@ namespace Part1.General.Entities
 {
     public class Patient
     {
+        ~Patient()
+        {
+            MRN = null;
+            FirstName = null;
+            LastName = null;
+            Address1 = null;
+            Address2 = null;
+            City = null;
+            //State = null;
+            ZipCode = null;
+            _insurancePolicies = null;
+        }
+
         //- Medical record number(string)
         public string MRN { get; set; }
 
