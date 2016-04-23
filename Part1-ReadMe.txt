@@ -20,7 +20,8 @@ Create a class to represent these policies and add a way for the Patient class t
 
 
 == Step 3. ==
-Suppose we need to add validation to this Patient class. The medical record number, first and last name, and street address must contain some string value that is not empty or null. Don't worry about checking if the address is real.
+Suppose we need to add validation to this Patient class. The medical record number, first and last name, and street address must contain some
+string value that is not empty or null. Don't worry about checking if the address is real.
 In addition, the Patient class must have at least one valid insurance policy which also should be validated (non-null or empty strings).
 Create the functionality needed to validate the Patient class.
 

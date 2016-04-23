@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using Part1.General.Entities;
+using FluentValidation;
 
-namespace Part1.General
+namespace Part1.General.Entities
 {
-    internal class Patient
+    public class Patient
     {
         //- Medical record number(string)
         public string MRN { get; set; }
@@ -21,11 +22,34 @@ namespace Part1.General
 
         private List<InsurancePolicy> _insurancePolicies = new List<InsurancePolicy>();
 
-        public IEnumerable<InsurancePolicy> InsurancePolicies { get; private set; }
+        public IEnumerable<InsurancePolicy> InsurancePolicies
+        {
+            get
+            {
+                return _insurancePolicies;
+            }
+        }
 
-        public void AddInsurancePolicy(InsurancePolicy policy)
+        public Patient AddInsurancePolicy(InsurancePolicy policy)
         {
             _insurancePolicies.Add(policy);
+            return this;
+        }
+    }
+
+    public class PatientValidator : AbstractValidator<Patient>
+    {
+        // The medical record number, first and last name, and street address must contain some
+        // string value that is not empty or null. Patient class must have at least one valid insurance policy
+        public PatientValidator()
+        {
+            RuleFor(x => x.MRN).NotEmpty();
+            RuleFor(x => x.FirstName).NotEmpty();
+            RuleFor(x => x.LastName).NotEmpty();
+            RuleFor(x => x.Address1).NotEmpty();
+
+            RuleFor(x => x.InsurancePolicies).Must(policies => policies.GetEnumerator().MoveNext() != false);
+            RuleForEach(x => x.InsurancePolicies).SetValidator(new InsurancePolicyValidator());
         }
     }
 }
