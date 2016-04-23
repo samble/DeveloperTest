@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Part1.General.Entities;
 using FluentValidation;
+using System.Text;
 
 namespace Part1.General.Entities
 {
@@ -39,7 +40,8 @@ namespace Part1.General.Entities
         {
             get
             {
-                return _insurancePolicies;
+                foreach (var pol in _insurancePolicies) yield return pol;
+                yield break;
             }
         }
 
@@ -48,7 +50,57 @@ namespace Part1.General.Entities
             _insurancePolicies.Add(policy);
             return this;
         }
+
+        // methods GetDisplayText1(), GetDisplayText2(), and GetDisplayText3() which use each of these methods.The output
+        //should be in the format:
+        //    [FirstName] [LastName]
+
+        //If the Patient class has at least one insurance policy, add some text to the end so the output is like this:
+        //	[FirstName] [LastName] - [InsuranceProviderName] [InsurancePolicyNumber]
+
+        public string GetDisplayText1()
+        {
+
+            string returnString = FirstName + " " + LastName;
+
+            var policies = InsurancePolicies.GetEnumerator();
+            if (policies.MoveNext())
+            {
+                returnString += " - " + policies.Current.GetDisplayText();
+            }
+
+            return returnString;
+        }
+
+        public string GetDisplayText2()
+        {
+            string returnString = string.Concat(FirstName, " ", LastName);
+            string insuranceString = string.Empty;
+
+            var policies = InsurancePolicies.GetEnumerator();
+            if (policies.MoveNext())
+            {
+                insuranceString = string.Concat(" - ", policies.Current.GetDisplayText());
+            }
+
+            return string.Concat(returnString, insuranceString);
+        }
+
+        public string GetDisplayText3()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(FirstName).Append(" ").Append(LastName);
+
+            var policies = InsurancePolicies.GetEnumerator();
+            if (policies.MoveNext())
+            {
+                sb.Append(" - ").Append(policies.Current.GetDisplayText());
+            }
+
+            return sb.ToString();
+        }
     }
+
 
     public class PatientValidator : AbstractValidator<Patient>
     {

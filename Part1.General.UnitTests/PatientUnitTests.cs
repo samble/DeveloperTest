@@ -137,5 +137,34 @@ namespace Part1.General.UnitTests
             p.Address1 = String.Empty;
             result = v.ShouldHaveValidationErrorFor(pat => pat.Address1, p);
         }
+
+        [TestMethod]
+        public void DisplayTextMethodsMustDisplayText()
+        {
+            {
+                Patient p = getValidPatient_noPolicy();
+                string disp1 = p.GetDisplayText1();
+                string disp2 = p.GetDisplayText2();
+                string disp3 = p.GetDisplayText3();
+
+                Assert.IsNotNull(disp1);
+                Assert.AreNotEqual(disp1, string.Empty);
+                Assert.AreEqual(disp1, disp2);
+                Assert.AreEqual(disp2, disp3);
+            }
+
+            {
+                Patient p = getValidPatient();
+                string disp1 = p.GetDisplayText1();
+                string disp2 = p.GetDisplayText2();
+                string disp3 = p.GetDisplayText3();
+
+                Assert.IsNotNull(disp1);
+                Assert.AreNotEqual(disp1, string.Empty);
+                Assert.AreEqual(disp1, disp2);
+                Assert.AreEqual(disp2, disp3);
+            }
+
+        }
     }
 }

@@ -14,6 +14,11 @@ namespace Part1.General.Entities
         //an insurance policy has a provider name and a policy number (string).
         public string ProviderName { get; set; }
         public string PolicyNumber { get; set; }
+
+        public string GetDisplayText()
+        {
+            return String.Format("{0} {1}", ProviderName, PolicyNumber);
+        }
     }
 
     public class InsurancePolicyValidator : AbstractValidator<InsurancePolicy>
