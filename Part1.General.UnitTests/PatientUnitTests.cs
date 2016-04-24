@@ -170,6 +170,7 @@ namespace Part1.General.UnitTests
         public void TOJsonMethodReturnsNonemptyString()
         {
             Patient p = getValidPatient();
+            p.AddInsurancePolicy(new InsurancePolicy() { PolicyNumber = "fjeioaj3", ProviderName = "testprovider" });
             string json = p.ToJSON();
             Assert.IsNotNull(json);
             Assert.AreNotEqual(json, string.Empty);

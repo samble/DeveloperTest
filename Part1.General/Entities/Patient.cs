@@ -20,22 +20,51 @@ namespace Part1.General.Entities
             _insurancePolicies = null;
         }
 
-        //- Medical record number(string)
+        /// <summary>
+        /// Medical Record Number for the patient
+        /// </summary>
         public virtual string MRN { get; set; }
 
-        //- First and last name
+        /// <summary>
+        /// Given name for the patient
+        /// </summary>
         public virtual string FirstName { get; set; }
+
+        /// <summary>
+        /// Family name for the patient
+        /// </summary>
         public virtual string LastName { get; set; }
 
-        //- Street address including city, state, and zip code
+        /// <summary>
+        /// Street address for the patient
+        /// </summary>
         public virtual string Address1 { get; set; }
+
+        /// <summary>
+        /// Street address (continued) for the patient
+        /// </summary>
         public virtual string Address2 { get; set; }
+
+        /// <summary>
+        /// City of residence for the patient
+        /// </summary>
         public virtual string City { get; set; }
+
+        /// <summary>
+        /// State of residence for the patient
+        /// </summary>
         public virtual StateEnum State { get; set; }
+
+        /// <summary>
+        /// Zipcode for the patient
+        /// </summary>
         public virtual string ZipCode { get; set; }
 
         private List<InsurancePolicy> _insurancePolicies = new List<InsurancePolicy>();
 
+        /// <summary>
+        /// Collection of insurance policies for the patient
+        /// </summary>
         public virtual IEnumerable<InsurancePolicy> InsurancePolicies
         {
             get
@@ -45,19 +74,21 @@ namespace Part1.General.Entities
             }
         }
 
+        /// <summary>
+        /// Add an insurance policy to the patient's collection
+        /// </summary>
+        /// <param name="policy">The insurance policy to add</param>
+        /// <returns></returns>
         public virtual Patient AddInsurancePolicy(InsurancePolicy policy)
         {
             _insurancePolicies.Add(policy);
             return this;
         }
 
-        // methods GetDisplayText1(), GetDisplayText2(), and GetDisplayText3() which use each of these methods.The output
-        //should be in the format:
-        //    [FirstName] [LastName]
-
-        //If the Patient class has at least one insurance policy, add some text to the end so the output is like this:
-        //	[FirstName] [LastName] - [InsuranceProviderName] [InsurancePolicyNumber]
-
+        /// <summary>
+        /// Returns short string representation of the patient's first and last name, and first insurance policy
+        /// </summary>
+        /// <returns></returns>
         public string GetDisplayText1()
         {
 
@@ -72,6 +103,10 @@ namespace Part1.General.Entities
             return returnString;
         }
 
+        /// <summary>
+        /// Returns short string representation of the patient's first and last name, and first insurance policy
+        /// </summary>
+        /// <returns></returns>
         public string GetDisplayText2()
         {
             string returnString = string.Concat(FirstName, " ", LastName);
@@ -86,6 +121,10 @@ namespace Part1.General.Entities
             return string.Concat(returnString, insuranceString);
         }
 
+        /// <summary>
+        /// Returns short string representation of the patient's first and last name, and first insurance policy
+        /// </summary>
+        /// <returns></returns>
         public string GetDisplayText3()
         {
             StringBuilder sb = new StringBuilder();
@@ -120,6 +159,11 @@ namespace Part1.General.Entities
 
     public static class PatientExtension
     {
+        /// <summary>
+        /// Returns a JSON representation of the patient information
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static string ToJSON(this Patient p)
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(p);
