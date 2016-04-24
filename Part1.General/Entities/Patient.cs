@@ -117,4 +117,12 @@ namespace Part1.General.Entities
             RuleForEach(x => x.InsurancePolicies).SetValidator(new InsurancePolicyValidator());
         }
     }
+
+    public static class PatientExtension
+    {
+        public static string ToJSON(this Patient p)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(p);
+        }
+    }
 }

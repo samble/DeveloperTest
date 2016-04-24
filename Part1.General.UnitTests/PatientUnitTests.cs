@@ -164,7 +164,15 @@ namespace Part1.General.UnitTests
                 Assert.AreEqual(disp1, disp2);
                 Assert.AreEqual(disp2, disp3);
             }
+        }
 
+        [TestMethod]
+        public void TOJsonMethodReturnsNonemptyString()
+        {
+            Patient p = getValidPatient();
+            string json = p.ToJSON();
+            Assert.IsNotNull(json);
+            Assert.AreNotEqual(json, string.Empty);
         }
     }
 }

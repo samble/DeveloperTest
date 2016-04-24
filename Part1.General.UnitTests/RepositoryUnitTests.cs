@@ -13,7 +13,13 @@ namespace Part1.General.UnitTests
         public void TestSearchMethod()
         {
             PatientRepository pr = new PatientRepository();
-            pr.AddPatient(PatientUnitTests.getValidPatient());
+            Patient p1 = PatientUnitTests.getValidPatient();
+
+            string validFirstname = p1.FirstName;
+            StateEnum validState = p1.State;
+
+            pr.AddPatient(p1);
+
             pr.AddPatient(new Patient()
             {
                 Address1 = "77 West Dr",
@@ -25,10 +31,28 @@ namespace Part1.General.UnitTests
                 MRN = "abcd1235"
             });
 
-            List<Patient> result = pr.Search(p => p.FirstName == "Dave");
+            Patient p2 = PatientUnitTests.getValidPatient();
+            p2.FirstName = validFirstname + "son";
+            pr.AddPatient(p2);
 
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result.TrueForAll(p => p.FirstName == "Dave"));
+            Patient p3 = PatientUnitTests.getValidPatient();
+            p3.State = validState + 1;
+            pr.AddPatient(p3);
+
+            {
+                List<Patient> result = pr.Search(p => p.FirstName == validFirstname);
+
+                Assert.IsNotNull(result);
+                Assert.IsTrue(result.TrueForAll(p => p.FirstName == validFirstname));
+                Assert.IsTrue(result.Count == 2);
+            }
+
+            {
+                List<Patient> result = pr.Search(p => p.State == validState);
+                Assert.IsNotNull(result);
+                Assert.IsTrue(result.TrueForAll(p => p.State == validState));
+                Assert.IsTrue(result.Count == 2);
+            }
         }
     }
 }
